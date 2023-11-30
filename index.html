@@ -1,20 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Proza+Libre:wght@400;600&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Nav Bar -->
+      <div class="nav-bar row">
+        <div class="column-half">
+          <button class="nav-title-btn" type="button">Placeholder</button>
+          <button class="catalog-btn" type="button">Catalog</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <!-- Title Row -->
+        <div class="row title-row align-center">
+          <div class="column-full t-center">
+            <h1 class="home-title">Placeholder</h1>
+          </div>
+        </div>
+        <!-- Search Bar -->
+        <form>
+          <div class="row search-bar-container">
+            <div class="column-full t-center">
+              <div class="search-bar">
+                <input
+                  type="text"
+                  id="search-bar"
+                  placeholder="Search 859,604 games" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

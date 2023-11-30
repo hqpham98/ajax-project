@@ -1,0 +1,39 @@
+/* .container {
+} */
+
+.row {
+  display: flex;
+}
+
+.title-row {
+  height: 50vh;
+
+  /* min-height */
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.t-center {
+  text-align: center;
+}
+
+/*
+@media screen and (min-width: 768px) {
+
+} */
