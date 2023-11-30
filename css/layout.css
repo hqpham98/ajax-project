@@ -1,13 +1,9 @@
-/* .container {
-  height: calc(100vh - 56px);
-} */
-
 .row {
   display: flex;
 }
 
 .title-row {
-  /* min-height */
+  padding-top: 10%;
 }
 
 .column-full {
@@ -31,8 +27,3 @@
 .t-center {
   text-align: center;
 }
-
-/*
-@media screen and (min-width: 768px) {
-
-} */

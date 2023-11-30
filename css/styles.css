@@ -41,8 +41,10 @@ body {
 }
 
 .search-bar-wrapper {
-  width: 500px;
-  padding: 0;
+  max-width: calc(100vw - 2rem);
+  width: 682px;
+  min-width: 338px;
+  padding: 0 2rem;
 }
 
 #search-bar {
@@ -53,6 +55,7 @@ body {
   line-height: 24px;
   padding: 6px;
   width: 100%;
+  color: #9f9f9f;
 }
 
 #search-bar::placeholder {
@@ -61,5 +64,6 @@ body {
 
 #search-bar:focus {
   background-color: white;
+  color: black;
   outline: none;
 }
