@@ -7,11 +7,13 @@ button:hover {
 }
 
 body {
+  position: relative;
   background-color: #151515;
 }
 
 .nav-bar {
   background-color: #18181c;
+  min-height: 56px;
 }
 
 .nav-bar button {
@@ -33,4 +35,31 @@ body {
 
 .home-title {
   color: white;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+.search-bar-wrapper {
+  width: 500px;
+  padding: 0;
+}
+
+#search-bar {
+  border-radius: 25px;
+  border: none;
+  background-color: #202020;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 6px;
+  width: 100%;
+}
+
+#search-bar::placeholder {
+  color: #9f9f9f;
+}
+
+#search-bar:focus {
+  background-color: white;
+  outline: none;
 }

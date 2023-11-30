@@ -1,4 +1,5 @@
 /* .container {
+  height: calc(100vh - 56px);
 } */
 
 .row {
@@ -6,8 +7,6 @@
 }
 
 .title-row {
-  height: 50vh;
-
   /* min-height */
 }
 
