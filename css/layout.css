@@ -1,3 +1,9 @@
+.container {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .row {
   display: flex;
 }
@@ -6,12 +12,9 @@
   padding-top: 10%;
 }
 
-.column-full {
-  flex-basis: 100%;
-}
-
+.column-full,
 .column-half {
-  flex-basis: 50%;
+  flex-basis: 100%;
 }
 
 .justify-center {
@@ -26,4 +29,14 @@
 
 .t-center {
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .column-half {
+    flex-basis: 50%;
+  }
 }

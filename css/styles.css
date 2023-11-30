@@ -41,10 +41,8 @@ body {
 }
 
 .search-bar-wrapper {
-  max-width: calc(100vw - 2rem);
-  width: 682px;
-  min-width: 338px;
-  padding: 0 2rem;
+  width: 100%;
+  max-width: 575px;
 }
 
 #search-bar {
