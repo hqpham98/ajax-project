@@ -1,0 +1,42 @@
+.container {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.row {
+  display: flex;
+}
+
+.title-row {
+  padding-top: 10%;
+}
+
+.column-full,
+.column-half {
+  flex-basis: 100%;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.t-center {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .column-half {
+    flex-basis: 50%;
+  }
+}
