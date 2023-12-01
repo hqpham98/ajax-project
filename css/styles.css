@@ -40,6 +40,10 @@ body {
   line-height: 48px;
 }
 
+.search-bar-container {
+  position: relative;
+}
+
 .search-bar-wrapper {
   width: 100%;
   max-width: 575px;
@@ -64,4 +68,23 @@ body {
   background-color: white;
   color: black;
   outline: none;
+}
+
+.results-popup {
+  position: absolute;
+  top: calc(10px + 36px);
+  border-radius: 15px;
+  background-color: black;
+  height: 500px;
+  width: 100%;
+  color: white;
+}
+
+.results-popup p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.results-popup span {
+  color: #666;
 }
