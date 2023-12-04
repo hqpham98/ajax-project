@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/a30f2bea79.js"
+      crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -45,8 +48,14 @@
                 </div>
               </div>
             </div>
-            <div class="row results-popup">
-              <p>Games <span>44583</span></p>
+            <div class="row results-popup hidden">
+              <div class="results-content">
+                <p>Games <span class="results-count"></span></p>
+                <!-- example -->
+              </div>
+              <div class="row loading-gif justify-center align-center">
+                <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+              </div>
             </div>
           </div>
         </form>
