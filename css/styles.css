@@ -79,19 +79,19 @@ body {
   max-width: 575px;
   border-radius: 15px;
   background-color: black;
-  height: 500px;
+  min-height: 300px;
+  max-height: 500px;
   width: 100%;
   color: white;
-  overflow: scroll;
 }
 
-.results-popup .results-content p {
+.results-popup .results-content > p {
   font-size: 16px;
   line-height: 24px;
   padding: 0 0.5rem;
 }
 
-.results-popup .results-content span {
+.results-popup .results-content > span {
   color: #666;
 }
 
@@ -99,8 +99,18 @@ body {
   width: 100%;
 }
 
-.results-entry .image-wrapper {
+.results-content {
+  width: 100%;
+}
+
+.results-entry {
+  padding: 0 1rem;
+  margin: 1rem 0;
   height: 40px;
+}
+
+.results-entry .image-wrapper {
+  height: 100%;
   width: 35px;
 }
 
@@ -108,6 +118,21 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.results-entry-platform,
+.results-entry-content {
+  font-size: 14px;
+  height: 50%;
+  padding: 0 0.5rem;
+}
+
+.results-entry-platform > span > *:nth-child(n + 2) {
+  padding-left: 1rem;
+}
+
+.results-entry:hover {
+  cursor: pointer;
 }
 
 .fa-spinner {

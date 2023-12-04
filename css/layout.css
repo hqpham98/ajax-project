@@ -16,6 +16,16 @@
   padding-top: 10%;
 }
 
+.column-10 {
+  flex-basis: 10%;
+  height: 100%;
+}
+
+.column-90 {
+  height: 100%;
+  flex-basis: 90%;
+}
+
 .column-full,
 .column-half {
   flex-basis: 100%;
@@ -26,9 +36,19 @@
   justify-content: center;
 }
 
+.align-top {
+  display: flex;
+  align-items: flex-start;
+}
+
 .align-center {
   display: flex;
   align-items: center;
+}
+
+.align-bottom {
+  display: flex;
+  align-items: flex-end;
 }
 
 .t-center {

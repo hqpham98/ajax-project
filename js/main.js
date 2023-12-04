@@ -8,16 +8,93 @@ const $loadingGif = document.querySelector('.loading-gif');
 const $resultsContent = document.querySelector('.results-content');
 const $resultsCount = document.querySelector('.results-count');
 
-// Creates a number of DOM objects from results
-function createResults(results, count) {
-  //  <div class="results-entry row">
-  //     <div class="image-wrapper">
-  //       <img src="https://media.rawg.io/media/games/a91/a9108384b5d691080b294cd744f350c9.jpg" />
-  //     </div>
-  //     <div class="results-entry-content">
-  //       <p>Baldur's Gate</p>
-  //     </div>
-  //   </div>
+//handle Array of Platform objects
+function handlePlatforms(platforms) {
+  let platform = '';
+  let result = document.createElement('span');
+  for (let i = 0; i < platforms.length; i++) {
+    platform = platforms[i].platform.name;
+    if (platform === 'PC') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-windows';
+      result.appendChild(plat);
+    } else if (platform === 'Apple Macintosh') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-apple';
+      result.appendChild(plat);
+    } else if (platform === 'iOS') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-app-store-ios';
+      result.appendChild(plat);
+    } else if (platform === 'Playstation') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-playstation';
+      result.appendChild(plat);
+    } else if (platform === 'Xbox') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-xbox';
+      result.appendChild(plat);
+    } else if (platform === 'Android') {
+      let plat = document.createElement('i');
+      plat.className = 'fa-brands fa-google-play';
+      result.appendChild(plat);
+    }
+  }
+  return result;
+}
+
+function renderSearchEntries(results, count) {
+  for (let i = 0; i < results.length && i < count; i++) {
+    $resultsContent.appendChild(createSearchEntry(results[i]));
+  }
+}
+
+// Creates a DOM object from result entry
+function createSearchEntry(entry) {
+  /* <div class="results-entry row">
+  <div class="column-10">
+    <div class="image-wrapper">
+      <img src="https://media.rawg.io/media/games/a91/a9108384b5d691080b294cd744f350c9.jpg" />
+    </div>
+  </div>
+  <div class="column-90">
+    <div class="row results-entry-platform align-top">
+      <span>Platform</span>
+    </div>
+    <div class="row results-entry-content align-bottom">
+      <span>Baldur's Gate</span>
+    </div>
+  </div>
+</div> */
+  const entryRow = document.createElement('div');
+  entryRow.className = 'results-entry row';
+  const imageColumn = document.createElement('div');
+  imageColumn.className = 'column-10';
+  const imageWrapper = document.createElement('div');
+  imageWrapper.className = 'image-wrapper';
+  const image = document.createElement('img');
+  image.setAttribute('src', entry.background_image);
+  const contentColumn = document.createElement('div');
+  contentColumn.className = 'column-90';
+  const platformRow = document.createElement('div');
+  platformRow.className = 'row results-entry-platform align-top';
+  const platformSpan = handlePlatforms(entry.parent_platforms);
+  const contentRow = document.createElement('div');
+  contentRow.className = 'row results-entry-content align-bottom';
+  const contentSpan = document.createElement('span');
+  contentSpan.innerText = entry.name;
+
+  entryRow.appendChild(imageColumn);
+  imageColumn.appendChild(imageWrapper);
+  imageWrapper.appendChild(image);
+
+  entryRow.appendChild(contentColumn);
+  contentColumn.appendChild(platformRow);
+  platformRow.appendChild(platformSpan);
+  contentColumn.appendChild(contentRow);
+  contentRow.appendChild(contentSpan);
+
+  return entryRow;
 }
 
 function handleResultsCount(count) {
@@ -47,6 +124,7 @@ async function handleInput(event) {
       console.log('started');
       data.results = await getSearchResults(event.target.value);
       handleResultsCount(data.results.count);
+      renderSearchEntries(data.results.results, 6);
       console.log(data.results);
       $loadingGif.classList.add('hidden');
       $resultsContent.classList.remove('hidden');
