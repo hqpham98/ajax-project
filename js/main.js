@@ -25,36 +25,37 @@ function handlePlatforms(platforms) {
   let result = document.createElement('span');
   for (let i = 0; i < platforms.length; i++) {
     platform = platforms[i].platform.name;
-    if (platform === 'PC') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-windows';
-      result.appendChild(plat);
-    } else if (platform === 'Apple Macintosh') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-apple';
-      result.appendChild(plat);
-    } else if (platform === 'iOS') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-app-store-ios';
-      result.appendChild(plat);
-    } else if (platform === 'Playstation') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-playstation';
-      result.appendChild(plat);
-    } else if (platform === 'Xbox') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-xbox';
-      result.appendChild(plat);
-    } else if (platform === 'Android') {
-      let plat = document.createElement('i');
-      plat.className = 'fa-brands fa-google-play';
-      result.appendChild(plat);
+    let plat = document.createElement('i');
+    switch (platform) {
+      case 'PC':
+        plat.className = 'fa-brands fa-windows';
+        result.appendChild(plat);
+        break;
+      case 'Apple Macintosh':
+        plat.className = 'fa-brands fa-apple';
+        result.appendChild(plat);
+        break;
+      case 'iOS':
+        plat.className = 'fa-brands fa-app-store-ios';
+        result.appendChild(plat);
+        break;
+      case 'Playstation':
+        plat.className = 'fa-brands fa-playstation';
+        result.appendChild(plat);
+        break;
+      case 'Xbox':
+        plat.className = 'fa-brands fa-xbox';
+        result.appendChild(plat);
+        break;
+      case 'Android':
+        plat.className = 'fa-brands fa-google-play';
+        result.appendChild(plat);
+        break;
     }
   }
   return result;
 }
-
-async function renderSearchEntries(results, count) {
+function renderSearchEntries(results, count) {
   for (let i = 0; i < results.length && i < count; i++) {
     $resultsContent.appendChild(createSearchEntry(results[i]));
   }
@@ -69,6 +70,7 @@ function createSearchEntry(entry) {
   imageWrapper.className = 'image-wrapper';
   const image = document.createElement('img');
   image.setAttribute('src', entry.background_image);
+  image.setAttribute('alt', 'game image');
   const contentColumn = document.createElement('div');
   contentColumn.className = 'column-90';
   const platformRow = document.createElement('div');
