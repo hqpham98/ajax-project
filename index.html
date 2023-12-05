@@ -13,11 +13,14 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/a30f2bea79.js"
+      crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
       <!-- Nav Bar -->
-      <div class="nav-bar row">
+      <div class="nav-bar row align-center">
         <div class="column-half">
           <button class="nav-title-btn" type="button">Placeholder</button>
           <button class="catalog-btn" type="button">Catalog</button>
@@ -34,14 +37,25 @@
         </div>
         <!-- Search Bar -->
         <form id="search-form">
-          <div class="row search-bar-container">
-            <div class="column-full justify-center">
-              <div class="search-bar-wrapper">
-                <input
-                  type="text"
-                  id="search-bar"
-                  placeholder="Search 859,604 games" />
+          <div class="search-bar-container">
+            <div class="row">
+              <div class="column-full justify-center">
+                <div class="search-bar-wrapper">
+                  <input
+                    type="text"
+                    id="search-bar"
+                    placeholder="Search 859,604 games" />
+                </div>
               </div>
+            </div>
+            <div class="row results-popup hidden">
+              <div class="results-content">
+                <p>Games <span class="results-count"></span></p>
+              </div>
+              <div class="row loading-gif justify-center align-center">
+                <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+              </div>
+              <div class="see-all-results"></div>
             </div>
           </div>
         </form>
