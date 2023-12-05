@@ -8,6 +8,17 @@ const $loadingGif = document.querySelector('.loading-gif');
 const $resultsContent = document.querySelector('.results-content');
 const $resultsCount = document.querySelector('.results-count');
 
+function clearEntries() {
+  const entries = document.querySelectorAll(
+    '.results-content > .results-entry',
+  );
+  if (entries) {
+    for (entry of entries) {
+      $resultsContent.removeChild(entry);
+    }
+  }
+}
+
 //handle Array of Platform objects
 function handlePlatforms(platforms) {
   let platform = '';
@@ -43,29 +54,13 @@ function handlePlatforms(platforms) {
   return result;
 }
 
-function renderSearchEntries(results, count) {
+async function renderSearchEntries(results, count) {
   for (let i = 0; i < results.length && i < count; i++) {
     $resultsContent.appendChild(createSearchEntry(results[i]));
   }
 }
 
-// Creates a DOM object from result entry
 function createSearchEntry(entry) {
-  /* <div class="results-entry row">
-  <div class="column-10">
-    <div class="image-wrapper">
-      <img src="https://media.rawg.io/media/games/a91/a9108384b5d691080b294cd744f350c9.jpg" />
-    </div>
-  </div>
-  <div class="column-90">
-    <div class="row results-entry-platform align-top">
-      <span>Platform</span>
-    </div>
-    <div class="row results-entry-content align-bottom">
-      <span>Baldur's Gate</span>
-    </div>
-  </div>
-</div> */
   const entryRow = document.createElement('div');
   entryRow.className = 'results-entry row';
   const imageColumn = document.createElement('div');
@@ -105,13 +100,10 @@ function handleResultsCount(count) {
   }
 }
 async function getSearchResults(query) {
-  // const response = await fetch(
-  //   `${targetURL}?key=${key}&search=${encodeURIComponent(query)}`,
-  // );
-
-  //example based  off of  "Baldur's Gate" query
-  const response = await fetch(`../js/test.json`);
-  return await response.json();
+  const response = await fetch(
+    `${targetURL}?key=${key}&search=${encodeURIComponent(query)}`,
+  );
+  return response.json();
 }
 
 async function handleInput(event) {
@@ -119,25 +111,24 @@ async function handleInput(event) {
     $resultsPopup.classList.remove('hidden');
     $loadingGif.classList.remove('hidden');
     $resultsContent.classList.add('hidden');
+    clearEntries();
 
-    async function test() {
-      console.log('started');
+    async function doSearch() {
       data.results = await getSearchResults(event.target.value);
       handleResultsCount(data.results.count);
-      renderSearchEntries(data.results.results, 6);
-      console.log(data.results);
+      renderSearchEntries(data.results.results, 5);
       $loadingGif.classList.add('hidden');
       $resultsContent.classList.remove('hidden');
     }
     clearTimeout(timeoutID);
-    timeoutID = setTimeout(test, 1000);
+    timeoutID = setTimeout(doSearch, 750);
   } else {
     $resultsPopup.classList.add('hidden');
   }
 }
 
 function handleBlur(event) {
-  // $resultsPopup.classList.add("hidden");
+  $resultsPopup.classList.add('hidden');
 }
 
 async function handleSubmit(event) {
