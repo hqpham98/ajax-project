@@ -27,6 +27,67 @@
         </div>
       </div>
     </header>
+    <main>
+      <div class="container">
+        <!-- Search Bar -->
+        <form id="search-form">
+          <div class="search-bar-container">
+            <div class="row">
+              <div class="column-full justify-center">
+                <div class="search-bar-wrapper-big" id="game-page-search">
+                  <input
+                    type="text"
+                    id="search-bar"
+                    placeholder="Search 859,604 games" />
+                </div>
+              </div>
+            </div>
+            <div class="row results-popup hidden">
+              <div class="results-content">
+                <p>Games <span class="results-count"></span></p>
+              </div>
+              <div class="row loading-gif justify-center align-center">
+                <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+              </div>
+              <div class="see-all-results"></div>
+            </div>
+          </div>
+        </form>
+        <!-- Game Title Row -->
+        <div class="row">
+          <div class="column-full game-title"></div>
+        </div>
+        <!-- Rating Platform Release Date Row-->
+        <div class="row rat-plat-date-row">
+          <div class="column-quarter">
+            <div class="row info-title">Rating</div>
+            <div class="row info-value" id="rating-val"></div>
+          </div>
+          <div class="column-quarter">
+            <div class="row info-title">Platforms</div>
+            <div class="row info-value" id="platform-val"></div>
+          </div>
+          <div class="column-half">
+            <div class="row info-title">Release Date</div>
+            <div class="row info-value" id="release-val"></div>
+          </div>
+        </div>
+        <!-- About Image Row -->
+        <div class="row about-image-row">
+          <div class="column-half">
+            <div class="row info-title">About</div>
+            <div class="row about-value" id="about-val"></div>
+          </div>
+          <div class="column-half">
+            <div class="row info-title">Image</div>
+            <div class="row image-value" id="image-wrapper-val">
+              <img
+                src="https://static.wikia.nocookie.net/wii/images/8/89/Pikachu.jpg/" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>

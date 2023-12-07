@@ -48,6 +48,11 @@ body {
   max-width: 575px;
 }
 
+.search-bar-wrapper-big {
+  padding: 1rem 0;
+  width: 100%;
+}
+
 #search-bar {
   border-radius: 25px;
   border: none;
@@ -136,4 +141,41 @@ body {
 
 .fa-spinner {
   font-size: 1rem;
+}
+
+.rat-plat-date-row {
+  color: white;
+}
+
+.game-title {
+  padding-bottom: 2rem;
+  color: white;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.rat-plat-date-row .info-title,
+.about-image-row .info-title {
+  padding-bottom: 1rem;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.rat-plat-date-row .info-value {
+  padding-bottom: 1rem;
+  font-weight: 500;
+}
+
+.about-image-row {
+  padding-bottom: 1rem;
+  color: white;
+}
+
+.about-image-row .about-value {
+  padding-bottom: 1rem;
+  font-size: 16px;
+}
+
+.about-image-row .image-wrapper-value {
+  padding-bottom: 1rem;
 }

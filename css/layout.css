@@ -27,7 +27,8 @@
 }
 
 .column-full,
-.column-half {
+.column-half,
+.column-third {
   flex-basis: 100%;
 }
 
@@ -62,5 +63,9 @@
 
   .column-half {
     flex-basis: 50%;
+  }
+
+  .column-quarter {
+    flex-basis: 25%;
   }
 }
