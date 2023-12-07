@@ -2,10 +2,6 @@
   font-family: Roboto, sans-serif;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 body {
   position: relative;
   background-color: #151515;
@@ -14,11 +10,13 @@ body {
 .nav-bar {
   background-color: #18181c;
   min-height: 56px;
+  padding: 0 1rem;
 }
 
-.nav-bar button {
+.nav-bar a {
   background-color: inherit;
   border-style: none;
+  text-decoration: none;
   color: white;
 }
 
@@ -29,6 +27,7 @@ body {
 }
 
 .catalog-btn {
+  padding-left: 0.5rem;
   font-size: 16px;
   line-height: 24px;
 }

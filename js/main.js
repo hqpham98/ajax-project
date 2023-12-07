@@ -19,6 +19,11 @@ function clearEntries() {
   }
 }
 
+//store data in localStorage
+function saveData() {
+  localStorage.setItem('gameStuff', JSON.stringify(data));
+}
+
 //handle Array of Platform objects
 function handlePlatforms(platforms) {
   let platform = '';
@@ -64,6 +69,7 @@ function renderSearchEntries(results, count) {
 function createSearchEntry(entry) {
   const entryRow = document.createElement('div');
   entryRow.className = 'results-entry row';
+  entryRow.setAttribute('data-entry-id', entry.id);
   const imageColumn = document.createElement('div');
   imageColumn.className = 'column-10';
   const imageWrapper = document.createElement('div');
@@ -121,11 +127,21 @@ async function handleInput(event) {
       renderSearchEntries(data.results.results, 5);
       $loadingGif.classList.add('hidden');
       $resultsContent.classList.remove('hidden');
+      saveData();
     }
     clearTimeout(timeoutID);
     timeoutID = setTimeout(doSearch, 750);
   } else {
     $resultsPopup.classList.add('hidden');
+  }
+}
+
+function handleEntryClick(event) {
+  const entry = event.target.closest('.results-entry');
+  if (entry) {
+    data.selectedID = entry.getAttribute('data-entry-id');
+    saveData();
+    location.assign('game.html');
   }
 }
 
@@ -138,6 +154,7 @@ async function handleSubmit(event) {
   data.results = await getSearchResults($search.value);
 }
 
-$search.addEventListener('input', handleInput);
-$search.addEventListener('blur', handleBlur);
-$searchForm.addEventListener('submit', handleSubmit);
+$search?.addEventListener('input', handleInput);
+$search?.addEventListener('blur', handleBlur);
+$searchForm?.addEventListener('submit', handleSubmit);
+$resultsContent?.addEventListener('mousedown', handleEntryClick);
