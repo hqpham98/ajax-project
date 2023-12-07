@@ -28,8 +28,12 @@
 
 .column-full,
 .column-half,
-.column-third {
+.column-quarter {
   flex-basis: 100%;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .justify-center {
@@ -58,7 +62,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 
   .column-half {

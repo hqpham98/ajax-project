@@ -113,7 +113,10 @@ async function getSearchResults(query) {
   );
   return response.json();
 }
-
+async function getSelectedGame(gameID) {
+  const response = await fetch(`${targetURL}/${gameID}?key=${key}`);
+  return response.json();
+}
 async function handleInput(event) {
   if (event.target.value.trim() !== '') {
     $resultsPopup.classList.remove('hidden');
@@ -136,10 +139,11 @@ async function handleInput(event) {
   }
 }
 
-function handleEntryClick(event) {
+async function handleEntryClick(event) {
   const entry = event.target.closest('.results-entry');
   if (entry) {
     data.selectedID = entry.getAttribute('data-entry-id');
+    data.selectedGame = await getSelectedGame(data.selectedID);
     saveData();
     location.assign('game.html');
   }
@@ -154,7 +158,36 @@ async function handleSubmit(event) {
   data.results = await getSearchResults($search.value);
 }
 
+function handleGamePageLoad(event) {
+  if (window.location.pathname === '/game.html') {
+    data = JSON.parse(localStorage.getItem('gameStuff'));
+    const $gameTitle = document.querySelector('#game-title');
+    const $rating = document.querySelector('#rating-val');
+    const $platforms = document.querySelector('#platform-val');
+    const $release = document.querySelector('#release-val');
+    const $about = document.querySelector('#about-val');
+    const $image = document.querySelector('#game-image');
+    const $background = document.querySelector('#background-image');
+    $gameTitle.innerText = data.selectedGame.name;
+    $rating.innerText = data.selectedGame.rating;
+    let plat = '';
+    if (data.selectedGame.platforms) {
+      for (let i = 0; i < data.selectedGame.platforms.length; i++) {
+        plat += `${data.selectedGame.platforms[i].platform.name}${
+          i === data.selectedGame.platforms.length - 1 ? '' : ', '
+        }`;
+      }
+    }
+    $platforms.innerText = plat;
+    $release.innerText = data.selectedGame.released;
+    $about.innerText = data.selectedGame.description_raw;
+    $image.setAttribute('src', data.selectedGame.background_image_additional);
+    $background.setAttribute('src', data.selectedGame.background_image);
+  }
+}
+
 $search?.addEventListener('input', handleInput);
 $search?.addEventListener('blur', handleBlur);
 $searchForm?.addEventListener('submit', handleSubmit);
 $resultsContent?.addEventListener('mousedown', handleEntryClick);
+document.addEventListener('DOMContentLoaded', handleGamePageLoad);

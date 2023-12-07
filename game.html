@@ -20,7 +20,7 @@
   <body>
     <header>
       <!-- Nav Bar -->
-      <div class="nav-bar row align-center">
+      <div class="nav-bar row align-center relative">
         <div class="column-half">
           <a class="nav-title-btn" href="index.html">Placeholder</a>
           <a class="catalog-btn" href="index.html">Catalog</a>
@@ -28,7 +28,10 @@
       </div>
     </header>
     <main>
-      <div class="container">
+      <div class="background-image-wrapper">
+        <img src="" alt="game background image" id="background-image" />
+      </div>
+      <div class="container sub-relative">
         <!-- Search Bar -->
         <form id="search-form">
           <div class="search-bar-container">
@@ -55,10 +58,10 @@
         </form>
         <!-- Game Title Row -->
         <div class="row">
-          <div class="column-full game-title"></div>
+          <div class="column-full game-title" id="game-title"></div>
         </div>
         <!-- Rating Platform Release Date Row-->
-        <div class="row rat-plat-date-row">
+        <div class="row rat-plat-date-row flex-wrap">
           <div class="column-quarter">
             <div class="row info-title">Rating</div>
             <div class="row info-value" id="rating-val"></div>
@@ -73,7 +76,7 @@
           </div>
         </div>
         <!-- About Image Row -->
-        <div class="row about-image-row">
+        <div class="row about-image-row flex-wrap">
           <div class="column-half">
             <div class="row info-title">About</div>
             <div class="row about-value" id="about-val"></div>
@@ -81,8 +84,7 @@
           <div class="column-half">
             <div class="row info-title">Image</div>
             <div class="row image-value" id="image-wrapper-val">
-              <img
-                src="https://static.wikia.nocookie.net/wii/images/8/89/Pikachu.jpg/" />
+              <img src="" alt="game image" id="game-image" />
             </div>
           </div>
         </div>
