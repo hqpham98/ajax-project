@@ -2,23 +2,25 @@
   font-family: Roboto, sans-serif;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 body {
   position: relative;
   background-color: #151515;
 }
 
+.sub-relative * {
+  position: relative;
+}
+
 .nav-bar {
   background-color: #18181c;
   min-height: 56px;
+  padding: 0 1rem;
 }
 
-.nav-bar button {
+.nav-bar a {
   background-color: inherit;
   border-style: none;
+  text-decoration: none;
   color: white;
 }
 
@@ -29,6 +31,7 @@ body {
 }
 
 .catalog-btn {
+  padding-left: 0.5rem;
   font-size: 16px;
   line-height: 24px;
 }
@@ -49,6 +52,12 @@ body {
   max-width: 575px;
 }
 
+.search-bar-wrapper-big {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
 #search-bar {
   border-radius: 25px;
   border: none;
@@ -60,11 +69,21 @@ body {
   color: #9f9f9f;
 }
 
+#search-bar:focus {
+  background-color: white;
+  color: black;
+  outline: none;
+}
+
 #search-bar::placeholder {
   color: #9f9f9f;
 }
 
-#search-bar:focus {
+.search-bar-wrapper-big #search-bar {
+  background-color: rgba(32, 32, 32, 0.5);
+}
+
+.search-bar-wrapper-big #search-bar:focus {
   background-color: white;
   color: black;
   outline: none;
@@ -72,7 +91,7 @@ body {
 
 .results-popup {
   position: absolute;
-  top: calc(10px + 36px);
+  top: calc(1rem + 36px);
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -85,10 +104,16 @@ body {
   color: white;
 }
 
+.results-popup-game-page {
+  top: calc(1rem + 1rem + 36px);
+  max-width: 100%;
+  z-index: 100;
+}
+
 .results-popup .results-content > p {
   font-size: 16px;
   line-height: 24px;
-  padding: 0 0.5rem;
+  padding: 0 8px;
 }
 
 .results-popup .results-content > span {
@@ -106,16 +131,18 @@ body {
 .results-entry {
   padding: 0 1rem;
   margin: 1rem 0;
-  height: 40px;
+  min-height: 40px;
 }
 
 .results-entry .image-wrapper {
-  height: 100%;
-  width: 35px;
+  width: 90%;
+  max-width: 80px;
 }
 
 .results-entry .image-wrapper img {
   height: 100%;
+  min-height: 40px;
+  max-height: 40px;
   width: 100%;
   object-fit: cover;
 }
@@ -123,7 +150,7 @@ body {
 .results-entry-platform,
 .results-entry-content {
   font-size: 14px;
-  height: 50%;
+  min-height: 20px;
   padding: 0 0.5rem;
 }
 
@@ -137,4 +164,61 @@ body {
 
 .fa-spinner {
   font-size: 1rem;
+}
+
+.rat-plat-date-row {
+  color: white;
+}
+
+.game-title {
+  padding-bottom: 2rem;
+  color: white;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.rat-plat-date-row .info-title,
+.about-image-row .info-title {
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.rat-plat-date-row .info-value {
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+}
+
+.about-image-row {
+  padding-bottom: 1rem;
+  color: white;
+}
+
+.about-image-row .about-value {
+  padding-bottom: 1rem;
+  font-size: 16px;
+}
+
+.about-image-row .image-wrapper-value {
+  padding-bottom: 1rem;
+}
+
+.about-image-row #game-image {
+  width: 100%;
+}
+
+.background-image-wrapper {
+  position: fixed;
+  margin: 0 auto;
+  opacity: 30%;
+  height: 100%;
+  width: 100%;
+}
+
+.background-image-wrapper #background-image {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }

@@ -8,6 +8,10 @@
   padding: 0 1.5rem;
 }
 
+.display-block {
+  display: block;
+}
+
 .row {
   display: flex;
 }
@@ -19,16 +23,23 @@
 .column-10 {
   flex-basis: 10%;
   height: 100%;
+  min-height: 40px;
 }
 
 .column-90 {
   height: 100%;
   flex-basis: 90%;
+  min-height: 40px;
 }
 
 .column-full,
-.column-half {
+.column-half,
+.column-quarter {
   flex-basis: 100%;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .justify-center {
@@ -57,10 +68,14 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 
   .column-half {
     flex-basis: 50%;
+  }
+
+  .column-quarter {
+    flex-basis: 25%;
   }
 }
