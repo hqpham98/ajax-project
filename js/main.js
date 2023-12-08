@@ -154,7 +154,7 @@ async function handleEntryClick(event) {
 }
 
 function handleBlur(event) {
-  // $resultsPopup.classList.add('hidden');
+  $resultsPopup.classList.add('hidden');
 }
 
 async function handleSubmit(event) {
