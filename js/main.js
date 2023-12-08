@@ -71,10 +71,11 @@ function createSearchEntry(entry) {
   entryRow.className = 'results-entry row';
   entryRow.setAttribute('data-entry-id', entry.id);
   const imageColumn = document.createElement('div');
-  imageColumn.className = 'column-10';
+  imageColumn.className = 'column-10 justify-center align-center';
   const imageWrapper = document.createElement('div');
   imageWrapper.className = 'image-wrapper';
   const image = document.createElement('img');
+  // image.className = "display-block";
   image.setAttribute('src', entry.background_image);
   image.setAttribute('alt', 'game image');
   const contentColumn = document.createElement('div');
@@ -141,17 +142,19 @@ async function handleInput(event) {
 }
 
 async function handleEntryClick(event) {
-  const entry = event.target.closest('.results-entry');
-  if (entry) {
-    data.selectedID = entry.getAttribute('data-entry-id');
-    data.selectedGame = await getSelectedGame(data.selectedID);
-    saveData();
-    location.assign('game.html');
+  if (event.button === 0) {
+    const entry = event.target.closest('.results-entry');
+    if (entry) {
+      data.selectedID = entry.getAttribute('data-entry-id');
+      data.selectedGame = await getSelectedGame(data.selectedID);
+      saveData();
+      location.assign('game.html');
+    }
   }
 }
 
 function handleBlur(event) {
-  $resultsPopup.classList.add('hidden');
+  // $resultsPopup.classList.add('hidden');
 }
 
 async function handleSubmit(event) {
