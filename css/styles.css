@@ -2,13 +2,13 @@
   font-family: Roboto, sans-serif;
 }
 
-.sub-relative * {
-  position: relative;
-}
-
 body {
   position: relative;
   background-color: #151515;
+}
+
+.sub-relative * {
+  position: relative;
 }
 
 .nav-bar {
@@ -91,7 +91,7 @@ body {
 
 .results-popup {
   position: absolute;
-  top: calc(10px + 36px);
+  top: calc(1rem + 36px);
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -104,10 +104,16 @@ body {
   color: white;
 }
 
+.results-popup-game-page {
+  top: calc(1rem + 1rem + 36px);
+  max-width: 100%;
+  z-index: 100;
+}
+
 .results-popup .results-content > p {
   font-size: 16px;
   line-height: 24px;
-  padding: 0 0.5rem;
+  padding: 0 8px;
 }
 
 .results-popup .results-content > span {
@@ -125,7 +131,7 @@ body {
 .results-entry {
   padding: 0 1rem;
   margin: 1rem 0;
-  height: 40px;
+  min-height: 40px;
 }
 
 .results-entry .image-wrapper {
@@ -172,12 +178,14 @@ body {
 .rat-plat-date-row .info-title,
 .about-image-row .info-title {
   padding-bottom: 1rem;
+  padding-right: 1rem;
   font-size: 22px;
   font-weight: 500;
 }
 
 .rat-plat-date-row .info-value {
   padding-bottom: 1rem;
+  padding-right: 1rem;
   font-weight: 500;
 }
 
@@ -197,17 +205,12 @@ body {
 
 .about-image-row #game-image {
   width: 100%;
-  height: 100%;
 }
 
 .background-image-wrapper {
   position: fixed;
   margin: 0 auto;
-
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  opacity: 10%;
+  opacity: 30%;
   height: 100%;
   width: 100%;
 }

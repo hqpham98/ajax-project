@@ -127,6 +127,7 @@ async function handleInput(event) {
     async function doSearch() {
       data.results = await getSearchResults(event.target.value);
       handleResultsCount(data.results.count);
+      clearEntries();
       renderSearchEntries(data.results.results, 5);
       $loadingGif.classList.add('hidden');
       $resultsContent.classList.remove('hidden');

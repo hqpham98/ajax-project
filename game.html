@@ -17,10 +17,13 @@
       src="https://kit.fontawesome.com/a30f2bea79.js"
       crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="sub-relative">
+    <div class="background-image-wrapper">
+      <img src="" alt="game background image" id="background-image" />
+    </div>
     <header>
       <!-- Nav Bar -->
-      <div class="nav-bar row align-center relative">
+      <div class="nav-bar row align-center">
         <div class="column-half">
           <a class="nav-title-btn" href="index.html">Placeholder</a>
           <a class="catalog-btn" href="index.html">Catalog</a>
@@ -28,10 +31,7 @@
       </div>
     </header>
     <main>
-      <div class="background-image-wrapper">
-        <img src="" alt="game background image" id="background-image" />
-      </div>
-      <div class="container sub-relative">
+      <div class="container">
         <!-- Search Bar -->
         <form id="search-form">
           <div class="search-bar-container">
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <div class="row results-popup hidden">
+            <div class="row results-popup results-popup-game-page hidden">
               <div class="results-content">
                 <p>Games <span class="results-count"></span></p>
               </div>
